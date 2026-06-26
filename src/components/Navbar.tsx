@@ -7,7 +7,7 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 bg-oceanic-noir/85 backdrop-blur-md border-b border-mystic-mint/10 opacity-0 animate-stagger-fade [animation-delay:240ms]">
+    <header className="fixed top-0 inset-x-0 z-50 bg-oceanic-noir/85 backdrop-blur-md border-b border-mystic-mint/10 opacity-0 animate-stagger-fade [animation-delay:180ms]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Brand Wordmark */}
         <a href="#" className="flex items-center gap-2 group">

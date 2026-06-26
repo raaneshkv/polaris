@@ -24,12 +24,12 @@ export function HeroSection() {
         </h1>
 
         {/* Subhead with stagger entry */}
-        <p className="max-w-2xl mt-6 text-base sm:text-lg md:text-xl text-arctic-powder/85 font-body leading-relaxed opacity-0 animate-stagger-fade [animation-delay:80ms]">
+        <p className="max-w-2xl mt-6 text-base sm:text-lg md:text-xl text-arctic-powder/85 font-body leading-relaxed opacity-0 animate-stagger-fade [animation-delay:60ms]">
           Polaris is a production-grade, autonomous AI data engine that connects, syncs, and automates pipelines with arctic-grade speed and reliability.
         </p>
 
         {/* CTA Buttons with stagger entry */}
-        <div className="mt-10 flex flex-wrap justify-center gap-4 opacity-0 animate-stagger-fade [animation-delay:160ms]">
+        <div className="mt-10 flex flex-wrap justify-center gap-4 opacity-0 animate-stagger-fade [animation-delay:120ms]">
           <a
             href="#pricing"
             className="px-8 py-4 bg-gradient-to-r from-forsythia to-deep-saffron text-oceanic-noir font-display font-black text-sm rounded-xl hover:shadow-lg hover:shadow-forsythia/25 hover:scale-[1.02] active:scale-[0.98] transition-all duration-micro"
