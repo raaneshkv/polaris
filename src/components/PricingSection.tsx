@@ -177,7 +177,11 @@ export function PricingSection() {
         </div>
 
         {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+        <div
+          aria-live="polite"
+          aria-label="Pricing plans — updates when billing cycle or currency changes"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch"
+        >
           {/* Card 1: Scout */}
           <div className="flex flex-col justify-between p-8 rounded-3xl bg-nocturnal-expedition/50 backdrop-blur-sm border border-mystic-mint/10 hover:border-forsythia/35 transition-all duration-structural group">
             <div>

@@ -1,12 +1,33 @@
 "use client";
 
 import { FEATURES } from "@/data/features";
+import { useEffect, useRef } from "react";
 
 interface BentoGridProps {
   onHoverChange: (index: number) => void;
 }
 
 export function BentoGrid({ onHoverChange }: BentoGridProps) {
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const cards = gridRef.current?.querySelectorAll(".scroll-reveal");
+    if (!cards) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    cards.forEach((card) => observer.observe(card));
+    return () => observer.disconnect();
+  }, []);
+
   // Array of grid class configurations for Bento layout
   const gridLayouts = [
     "md:col-span-2 md:row-span-1", // Card 1: Automate
@@ -17,8 +38,17 @@ export function BentoGrid({ onHoverChange }: BentoGridProps) {
     "md:col-span-1 md:row-span-1", // Card 6: Scale
   ];
 
+  const staggerClasses = [
+    "reveal-delay-1",
+    "reveal-delay-2",
+    "reveal-delay-3",
+    "reveal-delay-4",
+    "reveal-delay-5",
+    "reveal-delay-5",
+  ];
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]">
+    <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]">
       {FEATURES.map((feat, idx) => {
         const Icon = feat.icon;
         const gridClass = gridLayouts[idx] || "";
@@ -29,7 +59,7 @@ export function BentoGrid({ onHoverChange }: BentoGridProps) {
             tabIndex={0}
             onMouseEnter={() => onHoverChange(idx)}
             onFocus={() => onHoverChange(idx)}
-            className={`group relative flex flex-col justify-between p-6 rounded-3xl bg-mystic-mint border border-oceanic-noir/10 hover:border-nocturnal-expedition/40 hover:shadow-xl hover:shadow-nocturnal-expedition/5 transition-all duration-structural overflow-hidden cursor-pointer ${gridClass}`}
+            className={`scroll-reveal ${staggerClasses[idx] || ""} group relative flex flex-col justify-between p-6 rounded-3xl bg-mystic-mint border border-oceanic-noir/10 hover:border-nocturnal-expedition/40 hover:shadow-xl hover:shadow-nocturnal-expedition/5 transition-all duration-structural overflow-hidden cursor-pointer ${gridClass}`}
           >
             {/* Soft background grid glow */}
             <div className="absolute inset-0 bg-gradient-to-br from-arctic-powder to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-structural pointer-events-none" />

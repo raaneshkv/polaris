@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { BentoGrid } from "./BentoGrid";
 import { Accordion } from "./Accordion";
 
@@ -31,15 +31,16 @@ export function FeatureShowcase() {
     };
   }, []);
 
-  const handleHoverChange = (index: number) => {
+  const handleHoverChange = useCallback((index: number) => {
     // Context lock: Store active card without causing re-renders
     lastActiveIndexRef.current = index;
-  };
+  }, []);
 
   return (
     <section
       id="features"
       className="relative py-24 md:py-32 bg-arctic-powder text-oceanic-noir overflow-hidden"
+      aria-label="Feature matrix"
     >
       {/* Background visual accents */}
       <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-mystic-mint/45 rounded-full blur-[80px] pointer-events-none" />

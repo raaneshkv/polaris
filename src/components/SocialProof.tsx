@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { LinkSolidIcon, ChevronLeftIcon, ChevronRightIcon } from "./icons";
 
 interface ClientProof {
@@ -42,9 +43,30 @@ const CLIENTS: ClientProof[] = [
 ];
 
 export function SocialProof() {
+  const listRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const rows = listRef.current?.querySelectorAll(".scroll-reveal");
+    if (!rows) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    rows.forEach((row) => observer.observe(row));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section
       id="social"
+      aria-label="Client case studies"
       className="relative py-16 md:py-20 bg-mystic-mint/30 text-oceanic-noir border-t border-b border-oceanic-noir/5 overflow-hidden"
     >
       {/* Decorative background glow */}
@@ -61,11 +83,11 @@ export function SocialProof() {
         </div>
 
         {/* Hover-reveal list */}
-        <div className="relative divide-y divide-oceanic-noir/10 border-y border-oceanic-noir/10">
+        <div ref={listRef} className="relative divide-y divide-oceanic-noir/10 border-y border-oceanic-noir/10">
           {CLIENTS.map((client, idx) => (
             <div
               key={client.name}
-              className="group relative py-6 md:py-8 flex flex-col md:flex-row md:items-center justify-between gap-6 cursor-pointer"
+              className={`scroll-reveal reveal-delay-${Math.min(idx + 1, 5)} group relative py-6 md:py-8 flex flex-col md:flex-row md:items-center justify-between gap-6 cursor-pointer`}
             >
               {/* Left Column: Client Name */}
               <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-4 md:gap-8">

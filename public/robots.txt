@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://polaris-automation.vercel.app/sitemap.xml
