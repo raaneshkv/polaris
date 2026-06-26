@@ -5,20 +5,10 @@ import React from "react";
 import { ChevronUpSolidIcon } from "./icons";
 
 export function Footer() {
-  const marqueeText = "POLARIS • DATA ENGINE • AUTOMATION • SYNC PIPELINES • ";
-
   return (
-    <footer className="bg-oceanic-noir border-t border-mystic-mint/10 pt-16 pb-12 relative overflow-hidden">
+    <footer className="bg-oceanic-noir border-t border-mystic-mint/10 pt-14 pb-10 relative overflow-hidden">
       {/* Background soft accent light */}
       <div className="absolute bottom-0 right-1/4 w-[300px] h-[150px] bg-nocturnal-expedition/20 rounded-full blur-[80px] pointer-events-none" />
-
-      {/* Giant Marquee Wordmark Section */}
-      <div className="w-full overflow-hidden flex select-none pointer-events-none mb-16 border-b border-mystic-mint/5">
-        <div className="animate-marquee flex whitespace-nowrap text-[clamp(3.5rem,14vw,10rem)] font-display font-black tracking-tighter uppercase text-arctic-powder/[0.03] pb-8">
-          <span>{marqueeText}</span>
-          <span>{marqueeText}</span>
-        </div>
-      </div>
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8 z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">

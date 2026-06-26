@@ -45,13 +45,13 @@ export function SocialProof() {
   return (
     <section
       id="social"
-      className="relative py-24 md:py-32 bg-mystic-mint/30 text-oceanic-noir border-t border-b border-oceanic-noir/5 overflow-hidden"
+      className="relative py-16 md:py-20 bg-mystic-mint/30 text-oceanic-noir border-t border-b border-oceanic-noir/5 overflow-hidden"
     >
       {/* Decorative background glow */}
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[350px] h-[350px] bg-forsythia/10 rounded-full blur-[80px] pointer-events-none" />
 
       <div className="relative max-w-5xl mx-auto px-6">
-        <div className="text-center mb-16 md:mb-20">
+        <div className="text-center mb-10 md:mb-12">
           <span className="text-xs font-display font-bold tracking-widest text-nocturnal-expedition uppercase bg-mystic-mint px-3.5 py-1.5 rounded-full border border-nocturnal-expedition/10">
             Case Studies
           </span>
@@ -65,7 +65,7 @@ export function SocialProof() {
           {CLIENTS.map((client, idx) => (
             <div
               key={client.name}
-              className="group relative py-8 md:py-12 flex flex-col md:flex-row md:items-center justify-between gap-6 cursor-pointer"
+              className="group relative py-6 md:py-8 flex flex-col md:flex-row md:items-center justify-between gap-6 cursor-pointer"
             >
               {/* Left Column: Client Name */}
               <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-4 md:gap-8">

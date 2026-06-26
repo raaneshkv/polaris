@@ -155,7 +155,7 @@ export function PricingSection() {
   return (
     <section
       id="pricing"
-      className="relative py-24 md:py-32 bg-oceanic-noir border-t border-mystic-mint/10"
+      className="relative py-20 md:py-24 bg-oceanic-noir border-t border-mystic-mint/10"
     >
       {/* Background radial glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-nocturnal-expedition/30 rounded-full blur-[120px] pointer-events-none" />
